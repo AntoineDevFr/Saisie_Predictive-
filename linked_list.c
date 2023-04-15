@@ -3,7 +3,6 @@
 #include <string.h>
 #include "linked_list.h"
 
-
 void initializeList(List *liste)
 {
     liste->head = NULL;

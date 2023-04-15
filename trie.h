@@ -29,5 +29,5 @@ void print_trie_wrapper(Trie* trie);
 void print_trie_graph(Trienode* node, int level,FILE *file);
 void print_trie_graph_wrapper(Trie* trie);
 void search_prefix(Trienode* node, char* prefix, char* buffer, int depth,List *liste_mots);
-void suggest_words(Trie* trie, char* prefix);
+List suggest_words(Trie* trie, char* prefix);
 #endif

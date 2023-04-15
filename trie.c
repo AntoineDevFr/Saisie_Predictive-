@@ -140,7 +140,7 @@ void search_prefix(Trienode* node, char* prefix, char* buffer, int depth,List *l
     }
 }
 
-void suggest_words(Trie* trie, char* prefix)
+List suggest_words(Trie* trie, char* prefix)
 {
     List liste_mots;
     initializeList(&liste_mots);
@@ -162,7 +162,7 @@ void suggest_words(Trie* trie, char* prefix)
         if (current -> child[index] == NULL)
         {
             printf("Le préfixe n'existe pas dans le dictionnaire.\n");
-            return;
+            return liste_mots;
         }
         current = current->child[index];  
         prefix++;
@@ -171,5 +171,5 @@ void suggest_words(Trie* trie, char* prefix)
     search_prefix(current, prefix_copy, buffer, 0,&liste_mots);
     triFusion(&liste_mots);
 
-    print_n_last(&liste_mots,3);
+    return liste_mots;
 }
