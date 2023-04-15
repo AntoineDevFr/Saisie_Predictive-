@@ -20,6 +20,7 @@ int main()
     Trie trie;
     initialize_trie(&trie);
     create_trie(&trie, "mots_courants.txt");
+    create_trie(&trie, "dict_francais.txt");
 
     
 	HashTable hashTab;
@@ -56,9 +57,16 @@ void saisi_predictive(Trie *trie,HashTable *hashTab)
 
     for (int i = 0; i < 3; i++)     //on remplit le tableau
     {
-        char *mot = temp->mot;
-        suggestions[i] = mot;
-        temp = temp->next;
+        if (temp != NULL)
+        {
+            char *mot = temp->mot;
+            suggestions[i] = mot;
+            temp = temp->next;
+        }
+        else
+        {
+            suggestions[i] = "/";
+        }
     }
    
     int x = 0; //on affiche 
