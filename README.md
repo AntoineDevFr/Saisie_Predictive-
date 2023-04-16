@@ -31,7 +31,7 @@ La bibliothèque hash.h implémente une table de hachage pour stocker et recherc
 
 La bibliothèque trie.h implémente un arbre de préfixe pour stocker et rechercher des mots. 
 Les "trie" sont également appelés arbres de préfix. 
-Image de représentant un trie : 
+Image représentant un trie : 
 
  ![Trie](assets/Trie.png)
 
