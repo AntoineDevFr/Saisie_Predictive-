@@ -73,14 +73,3 @@ bool checkExistenceWordInDictionary(HashTable* hashTab, char * word)
 	return found;
 }
 
-void printHashTableCharacteristics(HashTable* hashTab) 
-{
-	/* A loadFactor = 0.75 offers a good tradeoff between time and space cost. */
-
-	float loadFactor = (float) hashTab->nbOccupiedEntries/hashTab->size;
-	printf("************** Hash Table Characteristics **********************\n");
-	printf("Number of buckets: %u \n", hashTab->size);
-	printf("Load Factor: %.2f \n", loadFactor);
-	printf("Total number of elements: %u \n", hashTab->nbElements);
-	printf("***************************************** **********************\n");
-}

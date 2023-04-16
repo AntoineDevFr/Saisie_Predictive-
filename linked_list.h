@@ -15,7 +15,7 @@ typedef struct List{
 
 void initializeList(List *liste);
 void printList(List* liste);
-void addNodeHead(List* liste, int weight, char *mot); //modifier si nécessaire
+void addNodeHead(List* liste, int weight, char *mot); 
 void deleteFirstNode(List* liste);
 void mirrorList(List* liste);
 void concatenationList(List* liste1, List* liste2);

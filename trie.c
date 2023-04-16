@@ -173,3 +173,57 @@ List suggest_words(Trie* trie, char* prefix)
 
     return liste_mots;
 }
+
+
+
+void serialize_trie(Trienode *root, FILE *fp) {
+    if (root == NULL) {
+        fwrite("#", sizeof(char), 1, fp); 
+        return;
+    }
+    fwrite(&(root->letter), sizeof(char), 1, fp); 
+    fwrite(&(root->weight), sizeof(int), 1, fp); 
+    for (int i = 0; i < 27; i++) {
+        serialize_trie(root->child[i], fp); 
+    }
+}
+
+Trienode* deserialize_trie(FILE *fp) {
+    char letter;
+    fread(&letter, sizeof(char), 1, fp); 
+    if (letter == '#') { 
+        return NULL;         
+    }
+    Trienode *root = (Trienode*) malloc(sizeof(Trienode)); 
+    fread(&(root->weight), sizeof(int), 1, fp); 
+    root->letter = letter;
+    for (int i = 0; i < 27; i++) {
+        root->child[i] = deserialize_trie(fp);
+    }
+    return root;
+}
+
+
+void save_trie(Trie *trie) 
+{
+    const char* filename = "save_trie.bin";
+    FILE *fp = fopen(filename, "wb");
+    if (fp == NULL) {
+        printf("Impossible d'ouvrir le fichier pour l'enregistrement du trie\n");
+        return;
+    }
+    serialize_trie(trie->root, fp); 
+    fclose(fp);
+}
+
+void load_trie(Trie *trie) 
+{
+    const char* filename = "save_trie.bin";
+    FILE *fp = fopen(filename, "rb");
+    if (fp == NULL) {
+        printf("Impossible d'ouvrir le fichier pour le chargement du trie\n");
+    }
+    trie->root = deserialize_trie(fp); 
+    fclose(fp);
+}
+

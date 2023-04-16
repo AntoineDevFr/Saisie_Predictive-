@@ -30,4 +30,8 @@ void print_trie_graph(Trienode* node, int level,FILE *file);
 void print_trie_graph_wrapper(Trie* trie);
 void search_prefix(Trienode* node, char* prefix, char* buffer, int depth,List *liste_mots);
 List suggest_words(Trie* trie, char* prefix);
+void serialize_trie(Trienode *root, FILE *file);
+Trienode* deserialize_trie(FILE *file);
+void save_trie(Trie *trie);
+void load_trie(Trie *trie); 
 #endif

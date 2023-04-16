@@ -3,6 +3,7 @@
     "files.associations": {
         "trie.h": "c",
         "hash.h": "c",
-        "linked_list.h": "c"
+        "linked_list.h": "c",
+        "math.h": "c"
     }
 }

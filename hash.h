@@ -29,7 +29,6 @@ void loadDictionaryFromFile(HashTable* hashTab, const char* dictionaryFileName);
 void insertElementToHashTable(HashTable* hashTab, char* word);
 void initializeHashTable(HashTable *hashTab);
 bool checkExistenceWordInDictionary(HashTable* hashTab, char * word);
-void printHashTableCharacteristics(HashTable* hashTab);
 unsigned long getHashValue(char *string);
 
 #endif
